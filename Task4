@@ -1,0 +1,44 @@
+import tkinter as tk
+from tkinter import ttk
+
+
+
+class App(tk.Tk):
+    def __init__(self):
+        super().__init__()
+
+
+
+
+
+        self.label = ttk.Label(self, text='')
+        self.label.pack()
+
+        self.entry = ttk.Entry()
+        self.entry.pack()
+
+        self.button = ttk.Button(self, text='Click Me')
+        self.button['command'] = self.button_clicked
+        self.button.pack()
+
+    def button_clicked(self):
+        ul = self.entry.get()
+
+        var = ""
+        for i in range(1,int(ul)):
+            if i%3 == 0 and i%5 ==0:
+                var = var + " fizzbuz"
+            if i%3 == 0 and i%5 != 0:
+                var = var + "fiz"
+            if i%5 ==0 and i%3 != 0:
+                var = var +"buzz"
+            if i%5 != 0 and i%3 != 0:
+                var = var + str(i)
+
+        self.final = ttk.Label(self, text = var)
+        self.final.pack()
+
+
+if __name__ == "__main__":
+    app = App()
+    app.mainloop()
