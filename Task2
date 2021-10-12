@@ -1,0 +1,29 @@
+from tkinter import *
+
+class panel(Tk):
+    def __init__(self):
+        super().__init__()
+        def prog(s):
+            v = 0
+            for i in s:
+                v = v + int(i)
+            return v
+        def getentry(a):
+            v = a.get()
+            return v
+
+        frame = Frame()
+        entry = Entry()
+        label = Label()
+        button = Button()
+        label.pack()
+        entry.pack()
+        s = entry.get()
+        button.pack(command = print(prog(s)))
+
+
+
+
+if __name__ == '__main__':
+    panel = panel()
+    panel.mainloop()
